@@ -20,10 +20,10 @@ void sensor_msg_init(sensor_msgs::Range &range_name, char *frame_id_name)
   range_name.max_range = 2.0;
 }
 
-//Create three instances for range messages.
+//Create instance for range messages.
 sensor_msgs::Range range_center;
 
-//Create publisher onjects for all sensors
+//Create publisher onjects for sensor
 ros::Publisher pub_range_center("/ultrasound_center", &range_center);
 
 void setup() {
@@ -32,7 +32,7 @@ void setup() {
   nh.initNode();
   nh.advertise(pub_range_center);
   sensor_msg_init(range_center, "/ultrasound_center");
-  Serial.begin(57600); // // Serial Communication is starting with 9600 of baudrate speed
+  Serial.begin(9600); // // Serial Communication is starting with 9600 of baudrate speed
 }
 
 void loop() {
